@@ -1,0 +1,560 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.main-nav {
+      background: red;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      box-shadow: 0 0 10px red;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .main-nav .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .main-nav ul li {
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1.2rem;
+    }
+
+    .main-nav ul li a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .main-nav ul li a:hover {
+      color: black;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+    }
+
+/* About Section */
+.about-section {
+  background: white;
+  color: #333;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px 30px;
+  line-height: 1.6;
+  font-size: 16px;
+  border-left: 5px solid red;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.about-section h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: red;
+  border-bottom: 2px solid red;
+  padding-bottom: 5px;
+}
+
+.about-section p {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+.about-section b {
+  color: red;
+}
+
+/* Vision Section */
+.vision-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 40px 20px;
+  background: white;
+  gap: 40px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.vision-content {
+  flex: 1;
+}
+
+.vision-content h4 {
+  color: red;
+  font-size: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.vision-content h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.vision-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.vision-content .author {
+  font-weight: bold;
+  font-style: italic;
+  color: #111;
+}
+
+.vision-image {
+  flex: 1;
+  text-align: right;
+}
+
+.vision-image img {
+  max-width: 100%;
+  height: auto ;
+}
+
+/* Investors Section */
+.investors-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 40px 20px;
+  background: white;
+  gap: 40px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.investors-content {
+  flex: 1;
+}
+
+.investors-content h4 {
+  color: red;
+  font-size: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.investors-content h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.investors-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Logos Scrolling */
+.investors-logos {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.logos-slide {
+  display: inline-flex;
+  gap: 40px;
+  animation: scroll 15s linear infinite;
+}
+
+.logos-slide img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Keyframes for infinite scroll */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.values-section {
+  background: #fff;
+  padding: 60px 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.values-section .container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+
+.value-box {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px red;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.value-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 12px red;
+}
+
+.value-box:hover h3 {
+  color: red;
+}
+
+.value-box img {
+  width: 180px;
+  height: 140px;
+  margin-bottom: 15px;
+}
+
+.value-box h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.value-box p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.join-team {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full screen height */
+  background: url('team.jpeg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.join-team::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); /* dark overlay */
+}
+
+.join-team .overlay {
+  position: relative;
+  max-width: 800px;
+  padding: 20px;
+  z-index: 1;
+}
+
+.join-team h2 {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.join-team p {
+  font-size: 25px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.join-team .btn {
+  display: inline-block;
+  background: #e60023; /* red theme */
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.join-team .btn:hover {
+  background: #b8001a;
+}
+
+footer {
+      background: red;
+      color: white;
+      padding: 40px 60px 20px;
+      box-shadow: 0 0 10px red;
+      font-family: "Segoe UI", sans-serif;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    /* Social icons + Logo */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      font-size: 40px;
+    }
+
+    .footer-brand .logo i {
+      color: gold;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      color: red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #444;
+    }
+
+    .footer-brand img {
+      width: 120px;
+    }
+
+    /* Footer nav lists */
+    .footer-nav {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .footer-col h4:hover {
+      color: #444;
+    }
+
+    /* Logos row */
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 30px 0;
+    }
+
+    .footer-logos img {
+      height: 50px;
+    }
+
+    /* Corporate info */
+    .corporate-info{
+      text-align: center;
+      font-size: 14px;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .corporate-info h4{
+      font-size: 17px;
+
+    }
+
+    .corporate-info p {
+      font-size: 15px;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    /* Bottom links */
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      font-size: 17px;
+    }
+
+    .footer-bottom a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .footer-bottom a:hover {
+      color: #444;
+    }
+
+/* ✅ Responsive Styles */
+@media (max-width: 768px) {
+  /* Main Nav */
+  .main-nav {
+    padding: 10px 20px;
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .main-nav ul {
+    display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 62px; /* below navbar */
+  right: 18px;
+  background: red;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px red;
+  padding: 10px;
+  z-index: 1200;
+  min-width: 180px;
+  gap: 6px;
+  }
+
+  .main-nav ul li {
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 6px;
+    display: flex;
+  }
+
+
+  /* Show toggle button */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* When menu active */
+  .main-nav.active ul {
+    display: flex;
+  }
+
+  /* Sections stack */
+  .vision-section,
+  .investors-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .vision-image,
+  .investors-logos {
+    text-align: center;
+  }
+
+  .values-section .container {
+    grid-template-columns: 1fr;
+  }
+
+  .join-team h2 {
+    font-size: 28px;
+  }
+  .join-team p {
+    font-size: 14px;
+  }
+  .join-team .btn {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items:flex-start;
+    text-align: left;
+    gap: 30px;
+  }
+
+  .footer-brand {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .social-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    gap: 20px;
+    width: 100%;
+    flex: unset;   /* ✅ override flex:1 */
+  }
+
+  .footer-col {
+    width: 100%;
+    text-align: left;
+    padding: 0 15px;
+  }
+
+  .footer-col h4 {
+    font-size: 15px;
+  }
+
+  .corporate-info {
+    padding: 0 15px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+}

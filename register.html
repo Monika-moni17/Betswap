@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Registration — Red Theme</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --card-bg: #fff;
+      --accent: #e53935; 
+      --accent-dark: #b71c1c;
+      --muted: #6b6b6b;
+      --input-bg: rgba(0,0,0,0.03);
+      --radius: 14px;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+      --max-width: 420px;
+      font-family: "Segoe UI", Roboto, sans-serif;
+    }
+
+    *{
+      box-sizing: border-box
+    }
+    
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      font-family: "Segoe UI", sans-serif;
+      background:#fff;
+      color:#222;
+    }
+
+    .wrap{
+      flex: 1;
+      display:flex;
+      align-items:center;          
+      justify-content:center;
+      margin-top: 10px;
+      padding: 20px;            
+    }
+
+    .card{
+      width:100%;
+      max-width: var(--max-width);
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: 0 0 10px red;
+      padding: 36px 30px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    h1{
+      text-align:center;
+      font-size:36px;
+      font-weight:700;
+      margin:6px 0 4px;
+      color: var(--accent-dark);
+    }
+    .sub{
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .socials a{
+      width:46px;height:46px;
+      display:inline-grid;
+      place-items:center;
+      border-radius:50%;
+      border:1px solid rgba(0,0,0,0.06);
+      color:var(--accent-dark);
+      font-size:20px;
+      background: linear-gradient(180deg, rgba(229,57,53,0.06), transparent);
+      text-decoration: none;
+    }
+
+    .divider{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:14px 0 20px;
+    }
+    .divider .line{
+      height:1px; flex:1;
+      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent);
+    }
+    .divider span{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .toggle{
+      display:flex;
+      gap:10px;
+      margin-bottom:20px;
+    }
+    .toggle button{
+      flex:1;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid red;
+      font-weight:600;
+      cursor:pointer;
+      background:#f9f9f9;
+    }
+    .toggle button.active{
+      background: linear-gradient(90deg,#e53935,#b71c1c);
+      color:#fff;
+      border:none;
+    }
+
+    .input-wrap{
+      position:relative;
+      margin-bottom:16px;
+    }
+
+    label{
+      display:block;
+      font-weight:600;
+      margin-bottom:6px;
+      font-size:13px;
+      color:#333;
+    }
+
+    input,select{
+      width:100%;
+      padding:14px 46px 14px 16px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,0.06);
+      background:var(--input-bg);
+      font-size:15px;
+      outline:none;
+    }
+
+    input:focus,select:focus{
+      border-color:var(--accent);
+      box-shadow:0 4px 18px rgba(229,57,53,0.08);
+    }
+
+    .eye{
+      position:absolute;
+      right:12px;
+      top:50%;
+      transform:translateY(-50%);
+      width:36px;height:36px;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      color:var(--muted);
+      background:transparent;
+      border:none;
+    }
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .remember{
+      display: flex;
+      align-items:center;
+      gap:8px;
+      color:var(--muted);
+      font-size:15px;
+
+    }
+    .remember input{
+      width:16px;
+      height:16px;
+    }
+
+    .checkbox input{
+      margin-top:3px;
+    }
+    
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:14px;
+      border-radius:50px;
+      border:none;
+      background: linear-gradient(90deg,var(--accent),var(--accent-dark));
+      color:#fff;
+      font-weight:700;
+      font-size:16px;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(229,57,53,0.18);
+    }
+
+    .btn:active{
+      transform:translateY(1px);
+    }
+
+    .bottom-icons{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .bottom-icons span {
+      font-size: 16px;
+    }
+
+    .bottom-icons span a {
+      color: red;
+    }
+
+    footer {
+        background: #ffcdcd;
+      color: red;
+      padding: 40px 60px 20px;
+      box-shadow: 0 0 10px red;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    /* Social icons + Logo */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: red;
+      font-size: 40px;
+    }
+
+    .footer-brand .logo i {
+      color: gold;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: red;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      background: #ff0000;
+      color: #444;
+    }
+
+    .footer-brand img {
+      width: 120px;
+    }
+
+    /* Footer nav lists */
+    .footer-nav {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .footer-col h4:hover {
+      color: #444;
+    }
+
+    /* Logos row */
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 30px 0;
+    }
+
+    .footer-logos img {
+      height: 50px;
+    }
+
+    /* Corporate info */
+    .corporate-info{
+      text-align: center;
+      font-size: 14px;
+      color: red;
+      margin-bottom: 20px;
+    }
+
+    .corporate-info h4{
+      font-size: 17px;
+
+    }
+
+    .corporate-info p {
+      font-size: 15px;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    /* Bottom links */
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      font-size: 17px;
+    }
+
+    .footer-bottom a {
+      text-decoration: none;
+      color: red;
+    }
+
+    .footer-bottom a:hover {
+      color: #444;
+    }
+  @media (max-width:768px){
+    .footer-top {
+    flex-direction: column;
+    align-items:flex-start;
+    text-align: left;
+    gap: 30px;
+  }
+
+  .footer-brand {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .social-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    gap: 20px;
+    width: 100%;
+    flex: unset;   /* ✅ override flex:1 */
+  }
+
+  .footer-col {
+    width: 100%;
+    text-align: left;
+    padding: 0 15px;
+  }
+
+  .footer-col h4 {
+    font-size: 15px;
+  }
+
+  .corporate-info {
+    padding: 0 15px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    font-size: 15px;
+    text-align: center;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Registration</h1>
+      <div class="sub">Sign up with your social media:</div>
+
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+      </div>
+
+      <div class="divider"><div class="line"></div><span>or</span><div class="line"></div></div>
+
+      <div class="toggle">
+        <button type="button" class="active" id="emailBtn">E-mail</button>
+        <button type="button" id="phoneBtn">Phone</button>
+      </div>
+
+      <form id="regForm" onsubmit="return false;">
+        <div class="input-wrap" id="emailField">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="E-mail" required autocomplete="off" />
+        </div>
+
+        <div class="input-wrap" id="phoneField" style="display:none;">
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" placeholder="Phone number" autocomplete="off"/>
+        </div>
+
+        <div class="input-wrap">
+          <label for="pwd">Password</label>
+          <input type="password" id="pwd" placeholder="Password" required autocomplete="off"/>
+          <button type="button" class="eye" id="togglePwd"><i class="fa-regular fa-eye"></i></button>
+        </div>
+
+        <div class="input-wrap">
+          <label for="currency">Currency</label>
+          <select id="currency">
+            <option value="INR">₹ INR</option>
+            <option value="USD">$ USD</option>
+            <option value="EUR">€ EUR</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label class="remember"><input type="checkbox" id="remember" /> I unconditionally agree with Terms & Conditions, 
+            Data Policy, Cookie Policy and that I am older than 18 years old</label>
+          <div style="color:transparent">spacer</div>
+        </div>
+
+        <button class="btn">Register</button>
+
+        <div class="bottom-icons" aria-hidden="true">
+          <span>Already have an Account  <a href="login.html">Login</a></span>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+<!-- footer -->
+ <footer>
+    <div class="footer-top">
+      <!-- Left Social + Logo -->
+      <div class="footer-brand">
+        <div class="logo"><i class="fas fa-trophy"></i><span style="color: red;"> BetWin</span></div>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <!-- Middle Nav -->
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Download App</h4>
+          <h4>How to Play</h4>
+          <h4>Invite Friends</h4>
+          <h4>Fantasy Cricket</h4>
+          <h4>Fantasy Football</h4>
+          <h4>Fantasy Cricket App Download</h4>  
+        </div>
+
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <h4>Jobs</h4>
+          <h4>Help & Support</h4>
+          <h4>Community Guidelines</h4>
+        </div>
+
+        <div class="footer-col">
+          <h4>FOUNDING MEMBER</h4>
+            <img src="fifs.png" style="height: 50px; width: 50px; margin-left: 50px; margin-bottom: 10px;">
+          <h4>PLAY RESPONSIBLY</h4>
+            <img src="fp.png" style="height: 50px; width: 50px; margin-left: 50px; ">  
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Corporate Info -->
+    <div class="corporate-info">
+      <h4>CORPORATE OFFICE:</h4>
+       <p> ONE BKC, Tower A, 12th & 14th Floor, Unit 1201 & 1202 and 1401 & 1402, Plot C-66,
+         G Block, Bandra Kurla Complex, Bandra (East), Mumbai 400 051.</p>
+    </div>
+
+    <!-- Bottom Links -->
+    <div class="footer-bottom">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+  </footer>  
+
+  <script>
+    const pwd = document.getElementById('pwd');
+    const togglePwd = document.getElementById('togglePwd');
+    let shown = false;
+    togglePwd.addEventListener('click', ()=>{
+      shown = !shown;
+      pwd.type = shown ? 'text' : 'password';
+      togglePwd.innerHTML = shown ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
+    });
+
+    const emailBtn = document.getElementById('emailBtn');
+    const phoneBtn = document.getElementById('phoneBtn');
+    const emailField = document.getElementById('emailField');
+    const phoneField = document.getElementById('phoneField');
+
+    emailBtn.addEventListener('click', ()=>{
+      emailBtn.classList.add('active');
+      phoneBtn.classList.remove('active');
+      emailField.style.display='block';
+      phoneField.style.display='none';
+    });
+    phoneBtn.addEventListener('click', ()=>{
+      phoneBtn.classList.add('active');
+      emailBtn.classList.remove('active');
+      emailField.style.display='none';
+      phoneField.style.display='block';
+    });
+  </script>
+</body>
+</html>

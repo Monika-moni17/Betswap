@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="ta">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Red Theme</title>
+
+  <!-- Font Awesome for social icons + eye icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root{
+      --bg: #ffffff;
+      --card-bg: #fff;
+      --accent: #e53935; /* red primary */
+      --accent-dark: #b71c1c;
+      --muted: #6b6b6b;
+      --input-bg: rgba(0,0,0,0.03);
+      --radius: 14px;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+      --max-width: 420px;
+      --gap: 18px;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    *{box-sizing: border-box}
+    
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      font-family: "Segoe UI", sans-serif;
+      background:#fff;
+      color:#222;
+    }
+
+    /* Full-screen center container similar to the photo */
+    .wrap{
+     flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .card{
+      width:100%;
+      max-width: var(--max-width);
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: 0 0 10px red;
+      padding: 36px 30px;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .brand-row{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      margin-bottom: 8px;
+    }
+
+    .brand-title{
+      text-align:center;
+      font-size:42px;
+      font-weight:700;
+      margin:6px 0 4px;
+      color: red;
+    }
+    .sub{
+      text-align:center;
+      color:var(--muted);
+      font-size:16px;
+      margin-bottom:18px;
+    }
+
+    /* social icons row */
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .socials a{
+      width:46px;
+      height:46px;
+      display:inline-grid;
+      place-items:center;
+      border-radius:50%;
+      border: 1px solid rgba(0,0,0,0.06);
+      text-decoration:none;
+      color:var(--accent-dark);
+      font-size:20px;
+      background: linear-gradient(180deg, rgba(229,57,53,0.06), transparent);
+    }
+
+    .divider{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:14px 0 6px;
+    }
+    .divider .line{
+      height:1px;
+      flex:1;
+      background: #e53935;
+    }
+    .divider span{font-size:15px;color:var(--muted)}
+
+    form{margin-top:6px}
+    label{
+      display:block;
+      font-weight:700;
+      margin-bottom:8px;
+      color:#333;
+      font-size:15px;
+    }
+
+    .input-wrap{
+      position:relative;
+      margin-bottom:16px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"]{
+      width:100%;
+      padding:14px 46px 14px 16px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,0.06);
+      background:var(--input-bg);
+      font-size:15px;
+      outline:none;
+      transition:box-shadow .15s, border-color .15s;
+    }
+    input:focus{
+      box-shadow:0 4px 18px rgba(229,57,53,0.08);
+      border-color: var(--accent);
+    }
+
+    .eye{
+      position:absolute;
+      right:12px;
+      top:50%;
+      transform:translateY(-50%);
+      width:36px;height:36px;
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      cursor:pointer;
+      color:var(--muted);
+      border:1px solid rgba(0,0,0,0.04);
+      background:transparent;
+    }
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .remember{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      color:var(--muted);
+      font-size:17px;
+    }
+    .remember input{width:16px;height:16px}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      padding:14px;
+      border-radius:50px;
+      border:none;
+      background: linear-gradient(90deg,var(--accent), var(--accent-dark));
+      color:white;
+      font-weight:700;
+      font-size:16px;
+      cursor:pointer;
+      box-shadow: 0 6px 18px rgba(229,57,53,0.18);
+    }
+    .btn:active{transform:translateY(1px)}
+
+    .bottom-icons{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .bottom-icons span {
+      font-size: 16px;
+    }
+
+    .bottom-icons span a {
+      color: red;
+    }
+
+    .forgot{
+      text-align:center;
+      margin-top:12px;
+      font-size:16px;
+    }
+    .forgot a{
+      color:var(--accent-dark);
+      text-decoration:underline;
+    }
+
+    footer {
+        background: #ffcdcd;
+      color: red;
+      padding: 40px 60px 20px;
+      box-shadow: 0 0 10px red;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    /* Social icons + Logo */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: red;
+      font-size: 40px;
+    }
+
+    .footer-brand .logo i {
+      color: gold;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: red;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      background: #ff0000;
+      color: #444;
+    }
+
+    .footer-brand img {
+      width: 120px;
+    }
+
+    /* Footer nav lists */
+    .footer-nav {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .footer-col h4:hover {
+      color: #444;
+    }
+
+    /* Logos row */
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 30px 0;
+    }
+
+    .footer-logos img {
+      height: 50px;
+    }
+
+    /* Corporate info */
+    .corporate-info{
+      text-align: center;
+      font-size: 14px;
+      color: red;
+      margin-bottom: 20px;
+    }
+
+    .corporate-info h4{
+      font-size: 17px;
+
+    }
+
+    .corporate-info p {
+      font-size: 15px;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    /* Bottom links */
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      font-size: 17px;
+    }
+
+    .footer-bottom a {
+      text-decoration: none;
+      color: red;
+    }
+
+    .footer-bottom a:hover {
+      color: #444;
+    }
+
+    /* responsive smaller */
+    @media (max-width:768px){
+      .card{padding:28px 18px}
+      .brand-title{font-size:34px}
+      input[type="text"], input[type="password"]{padding:12px 44px 12px 14px}
+      /* Footer */
+  .footer-top {
+    flex-direction: column;
+    align-items:flex-start;
+    text-align: left;
+    gap: 30px;
+  }
+
+  .footer-brand {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .social-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    gap: 20px;
+    width: 100%;
+    flex: unset;   /* ✅ override flex:1 */
+  }
+
+  .footer-col {
+    width: 100%;
+    text-align: left;
+    padding: 0 15px;
+  }
+
+  .footer-col h4 {
+    font-size: 15px;
+  }
+
+  .corporate-info {
+    padding: 0 15px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    font-size: 15px;
+    text-align: center;
+  }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main" aria-labelledby="loginHeading">
+      <div class="brand-row">
+        <!-- optional small logo -->
+        <img src="" alt="" style="width:46px;height:46px;border-radius:8px;display:none">
+      </div>
+
+      <h1 id="loginHeading" class="brand-title">Login</h1>
+      <div class="sub">via social networking:</div>
+
+      <div class="socials" aria-hidden="false">
+        <a href="#" title="facebook" aria-label="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" title="google" aria-label="google"><i class="fab fa-google"></i></a>
+        <a href="#" title="telegram" aria-label="telegram"><i class="fab fa-telegram-plane"></i></a>
+      </div>
+
+      <div class="divider"><div class="line"></div><span>or</span><div class="line"></div></div>
+
+      <form id="loginForm" onsubmit="return false;">
+        <div class="input-wrap">
+          <label for="user">Your login, email or phone number</label>
+          <input id="user" name="user" type="text" placeholder="Your login, email or phone number" required autocomplete="username" />
+        </div>
+
+        <div class="input-wrap">
+          <label for="pwd">Password</label>
+          <input id="pwd" name="pwd" type="password" placeholder="Password" required autocomplete="current-password" />
+          <button type="button" class="eye" id="togglePwd" aria-label="show password"><i class="fa-regular fa-eye"></i></button>
+        </div>
+
+        <div class="row">
+          <label class="remember"><input type="checkbox" id="remember" /> Remember me</label>
+          <div style="color:transparent">spacer</div>
+        </div>
+
+        <button class="btn" id="loginBtn"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log in</button>
+
+        <div class="forgot">
+          <a href="#" id="forgot">Forgot password?</a>
+        </div>
+
+        <div class="bottom-icons" aria-hidden="true">
+          <span>Don't have account yet? <a href="register.html">Register</a></span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<!-- footer -->
+ <footer>
+    <div class="footer-top">
+      <!-- Left Social + Logo -->
+      <div class="footer-brand">
+        <div class="logo"><i class="fas fa-trophy"></i><span style="color: red;"> BetWin</span></div>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <!-- Middle Nav -->
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Download App</h4>
+          <h4>How to Play</h4>
+          <h4>Invite Friends</h4>
+          <h4>Fantasy Cricket</h4>
+          <h4>Fantasy Football</h4>
+          <h4>Fantasy Cricket App Download</h4>  
+        </div>
+
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <h4>Jobs</h4>
+          <h4>Help & Support</h4>
+          <h4>Community Guidelines</h4>
+        </div>
+
+        <div class="footer-col">
+          <h4>FOUNDING MEMBER</h4>
+            <img src="fifs.png" style="height: 50px; width: 50px; margin-left: 50px; margin-bottom: 10px;">
+          <h4>PLAY RESPONSIBLY</h4>
+            <img src="fp.png" style="height: 50px; width: 50px; margin-left: 50px; ">  
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Corporate Info -->
+    <div class="corporate-info">
+      <h4>CORPORATE OFFICE:</h4>
+       <p> ONE BKC, Tower A, 12th & 14th Floor, Unit 1201 & 1202 and 1401 & 1402, Plot C-66,
+         G Block, Bandra Kurla Complex, Bandra (East), Mumbai 400 051.</p>
+    </div>
+
+    <!-- Bottom Links -->
+    <div class="footer-bottom">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+  </footer>
+
+  <script>
+    // Password show/hide
+    const pwd = document.getElementById('pwd');
+    const toggle = document.getElementById('togglePwd');
+    let shown = false;
+    toggle.addEventListener('click', () => {
+      shown = !shown;
+      pwd.type = shown ? 'text' : 'password';
+      toggle.innerHTML = shown ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
+      toggle.setAttribute('aria-pressed', shown);
+    });
+
+    // Basic form action (demo) - shows simple validation and demo behavior
+    const form = document.getElementById('loginForm');
+    const loginBtn = document.getElementById('loginBtn');
+    loginBtn.addEventListener('click', () => {
+      if(!form.reportValidity()) return;
+      // demo: highlight button and simulate action
+      loginBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing...';
+      loginBtn.disabled = true;
+      setTimeout(() => {
+        alert('Logged in (demo). Replace with real authentication.');
+        loginBtn.innerHTML = '<i class="fa-solid fa-arrow-right-to-bracket"></i> Log in';
+        loginBtn.disabled = false;
+      }, 900);
+    });
+  </script>
+</body>
+</html>
+

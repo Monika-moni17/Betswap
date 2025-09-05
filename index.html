@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BetSwap</title>
+  <link rel="stylesheet" href="index.css">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <h2 class="logo" id="logo">
+        <i class="fas fa-trophy"></i> BetSwap</h2>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <nav id="nav-links" class="nav-links">
+      <a href="about.html">About</a>
+      <a href="help.html">Help Desk</a>
+      <a href="faq.html">Faq</a>
+      <a href="login.html" class="login">LogIn</a>
+      <a href="register.html" class="reg">Registration</a>
+    </nav>
+  </header>
+
+  <!-- image -->
+  <section class="home-image">
+        
+  </section>
+  
+<!-- Download Section -->
+  <section class="download-section">
+    <div class="download-left">
+      <h3>DOWNLOAD THE OFFICIAL <span>BETSWAP</span> APP</h3>
+      <div class="store-buttons">
+        <a href="#" class="store-btn"><i class="fab fa-google-play"></i> Google Play</a>
+        <a href="#" class="store-btn"><i class="fab fa-apple"></i> App Store</a>
+      </div>
+    </div>
+
+    <div class="download-right">
+      <h2>Play Online Fantasy Sports Games on the <span>BetSwap</span> App</h2>
+      <p>
+        Pick your favourite matches, create your team, join FREE contests, and win exciting prizes daily on <span style="color: red;">BetSwap. </span>
+      </p>
+
+      <div class="steps">
+        <div class="step-box">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Select a Match</h4>
+            <p>Choose an upcoming match that you want to play</p>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Create Team</h4>
+            <p>Use your skills to pick the right players</p>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Join Contest</h4>
+            <p>Choose a contest and start competing to win</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- text Section -->
+  <section class="text">
+    <h1>India's Biggest Sports Platform</h1>
+    <div class="rating-box">
+      <p>App Rating:</p>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>4.5 | 40 Lakh+ ratings</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Left Side -->
+      <div class="footer-left">
+        <h2 class="logo"><i class="fas fa-trophy"></i>BETSWAP</h2>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="help.html">Helpdesk</a></li>
+          <li><a href="#">Community Guidelines</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Right Side -->
+      <div class="footer-right">
+        <div class="social-links">
+          <h3>Social Links</h3>  
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+        </div>
+        <div class="address">
+          <h3>Corporate Office Address</h3>
+          <p>
+            ONE BKC, Tower A, 12th & 14th Floor, Unit 1201 & 1202 <br>
+            And 1401 & 1402, Plot C-66, G Block, Bandra Kurla Complex, <br>
+            Bandra (East), Mumbai 400 051
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script>
+
+     const navLink = document.getElementById('nav-links');
+  const menuToggle = document.getElementById('menuToggle');
+
+  function toggleMenu(e) {
+    e.stopPropagation();
+    navLink.classList.toggle('show');
+  }
+
+  menuToggle.addEventListener('click',toggleMenu);
+
+  // close menu when clicking outside
+    document.addEventListener('click', function(e){
+
+    if (!navLink.contains(e.target) && !menuToggle.contains(e.target)) {
+      navLink.classList.remove('show');
+    } 
+  });
+
+
+  const navbar = document.querySelector(".navbar");
+  const logo = document.getElementById("logo");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+
+      logo.style.opacity="1";
+      logo.style.visibility="visible";
+
+      navLinks.forEach(link => link.style.color = "red");
+    } else {
+      navbar.classList.remove("scrolled");
+
+      logo.style.opacity="1";
+      logo.style.visibility="visible";
+    
+      navLinks.forEach(link => link.style.color = "white");
+    }
+  } );
+
+  </script>
+</body>
+</html>
